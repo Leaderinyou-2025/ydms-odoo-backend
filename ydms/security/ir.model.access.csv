@@ -1,0 +1,3 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_ydms_school_user,access.liy.ydms.school.user,model_liy_ydms_school,base.group_user,1,1,1,1
+access_ydms_classroom_user,access.liy.ydms.classroom.user,model_liy_ydms_classroom,base.group_user,1,1,1,1

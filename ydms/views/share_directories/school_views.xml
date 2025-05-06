@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <!-- Form view-->
+        <record id="ydms_school_view_form" model="ir.ui.view">
+                <field name="name">liy.ydms.school.form</field>
+                <field name="model">liy.ydms.school</field>
+                <field name="arch" type="xml">
+                        <form string="Trường học">
+                                <sheet>
+                                        <field name="image_1920" widget='image' class="oe_avatar" options='{"zoom": true, "preview_image": "image_128"}'/>
+                                        <group>
+                                                <group>
+                                                        <field name="name"/>
+                                                </group>
+                                                <group>
+                                                        <field name="code"/>
+                                                </group>
+                                        </group>
+                                </sheet>
+                        </form>
+                </field>
+        </record>
+
+        <!-- Tree view -->
+        <record id="ydms_school_view_tree" model="ir.ui.view">
+                <field name="name">liy.ydms.school.tree</field>
+                <field name="model">liy.ydms.school</field>
+                <field name="arch" type="xml">
+                        <list string="Trường học">
+                                <field name="name"/>
+                                <field name="code"/>
+                                <field name="classroom_ids" widget="many2many_tags"/>
+                        </list>
+                </field>
+        </record>
+
+        <!-- Action-->
+        <record id="ydms_school_action" model="ir.actions.act_window">
+                <field name="name">Trường học</field>
+                <field name="res_model">liy.ydms.school</field>
+                <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Menu item-->
+        <menuitem name="Trường học" id="school_menu" parent="shared_directory_menu"
+                  action="ydms_school_action" sequence="10"/>
+</odoo>

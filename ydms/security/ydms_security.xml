@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <data noupdate="1">
+                <record model="ir.module.category" id="module_category_ydms">
+                        <field name="name">YDMS</field>
+                        <field name="sequence">10</field>
+                </record>
+
+                <!-- YDMS Roles ********************************** -->
+                <record model="res.groups" id="ydms_superadmin_group">
+                        <field name="name">Display all menu</field>
+                        <field name="category_id" ref="module_category_ydms"/>
+                        <field name="users" eval="[(4,ref('base.user_admin'))]"/>
+                </record>
+
+                <record model="res.groups" id="ydms_board_manager_group">
+                        <field name="name">Nhà trường</field>
+                        <field name="category_id" ref="module_category_ydms"/>
+                </record>
+
+                <record model="res.groups" id="ydms_teacher_group">
+                        <field name="name">Giáo viên</field>
+                        <field name="category_id" ref="module_category_ydms"/>
+                </record>
+
+                <record model="res.groups" id="ydms_parent_group">
+                        <field name="name">Cha mẹ/Người giám hộ</field>
+                        <field name="category_id" ref="module_category_ydms"/>
+                </record>
+
+                <record model="res.groups" id="ydms_teenager_group">
+                        <field name="name">Học sinh</field>
+                        <field name="category_id" ref="module_category_ydms"/>
+                </record>
+
+                <record model="res.groups" id="ydms_expert_group">
+                        <field name="name">Chuyên gia</field>
+                        <field name="category_id" ref="module_category_ydms"/>
+                </record>
+
+        </data>
+</odoo>
