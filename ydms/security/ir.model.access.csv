@@ -1,3 +1,7 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-access_ydms_school_user,access.liy.ydms.school.user,model_liy_ydms_school,base.group_user,1,1,1,1
 access_ydms_classroom_user,access.liy.ydms.classroom.user,model_liy_ydms_classroom,base.group_user,1,1,1,1
+
+access_res_country_state_user,access.res.country.state.user,model_res_country_state,base.group_user,1,1,1,1
+access_ydms_district_user,access.liy.ydms.district.user,model_liy_ydms_district,base.group_user,1,1,1,1
+access_ydms_precint_user,access.liy.ydms.precint.user,model_liy_ydms_precint,base.group_user,1,1,1,1
+

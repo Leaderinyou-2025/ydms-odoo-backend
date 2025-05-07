@@ -22,6 +22,10 @@
 
         # Shared Directory
         'views/share_directories/school_views.xml',
+        'views/share_directories/classroom_views.xml',
+        'views/share_directories/address_views.xml',
+        'views/share_directories/partner_views.xml',
+        'views/share_directories/users_views.xml',
     ],
     'demo': [],
     'images': [],
