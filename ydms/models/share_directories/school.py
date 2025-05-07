@@ -10,7 +10,7 @@ from odoo.exceptions import UserError, ValidationError
 class YDMSSchool(models.Model):
     _name = "liy.ydms.school"
     _description = u'Trường học'
-    _inherit = ['image.mixin']
+    _inherit = ['res.partner']
     _order = 'name desc'
 
     name = fields.Char(string=u'Tên trường', required=True, tracking=True)
