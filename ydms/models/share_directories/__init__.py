@@ -6,3 +6,4 @@
 from . import school
 from . import classroom
 from . import address
+from . import avatar

@@ -20,6 +20,6 @@ class YDMSPartner(models.Model):
 	is_parent = fields.Boolean(u'Cha mẹ/Người bảo trợ', default = False)
 	is_expert = fields.Boolean(u'Chuyên gia', default = False)
 
-	social_id = fields.Char(string=u'Biệt danh')
-	edu_id = fields.Char(string=u'Biệt danh')
-	teenager_code = fields.Char(string=u'Biệt danh')
+	social_id = fields.Char(string=u'Số CCCD')
+	edu_id = fields.Char(string=u'Mã định danh của HS')
+	teenager_code = fields.Char(string=u'Mã nội bộ HS')

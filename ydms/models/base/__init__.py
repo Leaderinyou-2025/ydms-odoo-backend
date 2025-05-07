@@ -4,3 +4,4 @@
 #    Author: Oceantech Team
 #############################################################################
 from . import partner
+from . import users

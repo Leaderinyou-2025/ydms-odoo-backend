@@ -1,55 +1,57 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <!-- Form view-->
-        <record id="ydms_school_view_form" model="ir.ui.view">
-                <field name="name">liy.ydms.school.form</field>
-                <field name="model">res.partner</field>
-                <field name="arch" type="xml">
-                        <form string="Trường học">
-                                <sheet>
-                                        <field name="image_1920" widget='image' class="oe_avatar"
-                                               options='{"zoom": true, "preview_image": "image_128"}'/>
-                                        <group>
+        <data>
+                <!-- Form view-->
+                <record id="ydms_school_view_form" model="ir.ui.view">
+                        <field name="name">liy.ydms.school.form</field>
+                        <field name="model">res.partner</field>
+                        <field name="arch" type="xml">
+                                <form string="Trường học">
+                                        <sheet>
+                                                <field name="image_1920" widget='image' class="oe_avatar"
+                                                       options='{"zoom": true, "preview_image": "image_128"}'/>
                                                 <group>
-                                                        <field name="is_school"/>
-                                                        <field name="name"/>
+                                                        <group>
+                                                                <field name="is_school"/>
+                                                                <field name="name"/>
+                                                        </group>
+                                                        <group>
+                                                                <field name="code"/>
+                                                        </group>
                                                 </group>
-                                                <group>
-                                                        <field name="code"/>
-                                                </group>
-                                        </group>
-                                </sheet>
-                                <chatter/>
-                        </form>
-                </field>
-        </record>
+                                        </sheet>
+                                        <chatter/>
+                                </form>
+                        </field>
+                </record>
 
-        <!-- Tree view -->
-        <record id="ydms_school_view_tree" model="ir.ui.view">
-                <field name="name">liy.ydms.school.tree</field>
-                <field name="model">res.partner</field>
-                <field name="arch" type="xml">
-                        <list string="Trường học">
-                                <field name="name"/>
-                                <field name="code"/>
-                                <field name="classroom_ids" widget="many2many_tags"/>
-                        </list>
-                </field>
-        </record>
+                <!-- Tree view -->
+                <record id="ydms_school_view_tree" model="ir.ui.view">
+                        <field name="name">liy.ydms.school.tree</field>
+                        <field name="model">res.partner</field>
+                        <field name="arch" type="xml">
+                                <list string="Trường học">
+                                        <field name="name"/>
+                                        <field name="code"/>
+                                        <field name="classroom_ids" widget="many2many_tags"/>
+                                </list>
+                        </field>
+                </record>
 
-        <!-- Action-->
-        <record id="ydms_school_action" model="ir.actions.act_window">
-                <field name="name">Trường học</field>
-                <field name="res_model">res.partner</field>
-                <field name="view_mode">list,form</field>
-                <field name="view_ids"
-                       eval="[(5, 0, 0),
+                <!-- Action-->
+                <record id="ydms_school_action" model="ir.actions.act_window">
+                        <field name="name">Trường học</field>
+                        <field name="res_model">res.partner</field>
+                        <field name="view_mode">list,form</field>
+                        <field name="view_ids"
+                               eval="[(5, 0, 0),
                           (0, 0, {'view_mode': 'list', 'view_id': ref('ydms_school_view_tree')}),
                           (0, 0, {'view_mode': 'form', 'view_id': ref('ydms_school_view_form')})]"/>
-                <field name="domain">[('is_school', '=', True)]</field>
-        </record>
+                        <field name="domain">[('is_school', '=', True)]</field>
+                </record>
 
-        <!-- Menu item-->
-        <menuitem name="Trường học" id="school_menu" parent="shared_directory_menu"
-                  action="ydms_school_action" sequence="10"/>
+                <!-- Menu item-->
+                <menuitem name="Trường học" id="school_menu" parent="shared_directory_menu"
+                          action="ydms_school_action" sequence="10"/>
+        </data>
 </odoo>

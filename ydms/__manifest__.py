@@ -20,12 +20,15 @@
         'security/ir.model.access.csv',
         'menu/menu.xml',
 
-        # Shared Directory
+        # Share Directories
         'views/share_directories/school_views.xml',
         'views/share_directories/classroom_views.xml',
         'views/share_directories/address_views.xml',
-        'views/share_directories/partner_views.xml',
-        'views/share_directories/users_views.xml',
+        'views/share_directories/avatar_views.xml',
+
+        # Base
+        'views/base/partner_views.xml',
+        'views/base/users_views.xml',
     ],
     'demo': [],
     'images': [],
