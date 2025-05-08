@@ -13,7 +13,7 @@ class AvatarController(http.Controller):
         methods=['GET'],
     )
     def get_avatar(self, id, **kwargs):
-        entity = request.env['liy.ydms.avatars'].sudo().browse(id)
+        entity = request.env['liy.ydms.avatar'].sudo().browse(id)
         if not entity.exists():
             return utils._json_response(self, {'error': 'Không tìm thấy Avatar'}, status=404)
         return utils._json_response(self, {
