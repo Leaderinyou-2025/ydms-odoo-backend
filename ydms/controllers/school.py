@@ -53,22 +53,18 @@ class ClassroomController(http.Controller):
         return utils._json_response(self, result)
 
     @http.route(
-        '/api/schools/<int:school_id>',
+        '/api/schools/<int:id>',
         auth='none',
         type='http',
         cors='*',
         csrf=False,
         methods=['GET'],
     )
-    def get_school(self, school_id, **kwargs):
+    def get_school(self, id, **kwargs):
         try:
-            school = request.env['res.partner'].sudo().browse(school_id)
+            school = request.env['res.partner'].sudo().browse(id)
             if not school.exists():
-                return request.make_response(
-                    json.dumps({'error': 'Không tìm thấy trường học với ID %s' % school_id}),
-                    headers=[('Content-Type', 'application/json')],
-                    status=404
-                )
+                return utils._json_response(self, {'error': 'Không tìm thấy trường học với ID %s' % id}, status=404)
             classrooms = [{
                 'id': c.id,
                 'name': c.name,
@@ -84,8 +80,4 @@ class ClassroomController(http.Controller):
 
             return utils._json_response(self, {'success': True, 'data': result})
         except Exception as e:
-            return request.make_response(
-                json.dumps({'error': str(e)}),
-                headers=[('Content-Type', 'application/json')],
-                status=500
-            )
+            return utils._json_response(self, {'error': str(e)}, status=500)

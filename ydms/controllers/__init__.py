@@ -3,3 +3,4 @@
 from . import classroom
 from . import school
 from . import address
+from . import avatar
