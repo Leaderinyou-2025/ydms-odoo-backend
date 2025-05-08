@@ -13,6 +13,7 @@ class YDMSPartner(models.Model):
 	_inherit = ['res.partner']
 	_order = 'nickname asc'
 
+	avatar = fields.Many2one('liy.ydms.avatar', string='Hình ảnh đại diện')
 	nickname = fields.Char(string=u'Biệt danh', tracking=True)
 	is_board_manager = fields.Boolean(u'Lãnh đạo nhà trường', default = False)
 	is_teacher = fields.Boolean(u'Giáo viên', default = False)
