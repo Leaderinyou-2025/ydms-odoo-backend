@@ -2,7 +2,7 @@
 <odoo>
         <data>
                 <!-- Form view-->
-                <record id="ydms_school_view_form" model="ir.ui.view">
+                <record id="ydms_category_view_form" model="ir.ui.view">
                         <field name="name">liy.ydms.category.form</field>
                         <field name="model">liy.ydms.category</field>
                         <field name="arch" type="xml">
@@ -21,7 +21,6 @@
                                                         </group>
                                                 </group>
                                         </sheet>
-                                        <chatter/>
                                 </form>
                         </field>
                 </record>

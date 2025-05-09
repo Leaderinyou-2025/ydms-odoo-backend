@@ -10,7 +10,7 @@
                                         <sheet>
                                                 <group>
                                                         <group>
-                                                                <field name="school_id"/>
+                                                                <field name="school_id" domain="[('is_school', '=', True)]"/>
                                                                 <field name="name"/>
                                                         </group>
                                                         <group>

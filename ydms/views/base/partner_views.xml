@@ -1,5 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <data>
-        </data>
+    <data>
+        <record id="view_partner_form_inherit_ydms" model="ir.ui.view">
+            <field name="name">res.partner.form.inherit.ydms</field>
+            <field name="model">res.partner</field>
+            <field name="inherit_id" ref="base.view_partner_form"/>
+            <field name="arch" type="xml">
+
+                <!-- Thêm sau phần Tax ID -->
+                <xpath expr="//field[@name='vat']" position="after">
+
+                    <field name="nickname" invisible="is_company"/>
+                    <field name="avatar" invisible="is_company"/>
+                    <field name="social_id" invisible="is_company"/>
+                    <field name="edu_id" invisible="is_company"/>
+                    <field name="teenager_code" invisible="is_company"/>
+
+                </xpath>
+                <!-- Thêm sau phần Tags -->
+                <xpath expr="//field[@name='category_id']" position="after">
+                    <separator string="Phân loại vai trò" invisible="is_company"/>
+                    <field name="is_board_manager" invisible="is_company"/>
+                    <field name="is_teacher" invisible="is_company"/>
+                    <field name="is_teenager" invisible="is_company"/>
+                    <field name="is_parent" invisible="is_company"/>
+                    <field name="is_expert" invisible="is_company"/>
+                </xpath>
+
+            </field>
+        </record>
+    </data>
 </odoo>
