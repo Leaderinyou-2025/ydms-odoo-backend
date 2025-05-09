@@ -15,7 +15,7 @@ class YDMSUsers(models.Model):
 
 	school_id = fields.Many2one('res.partner', string='Trường học', domain="[('is_school', '=', True)]")
 	classroom_id = fields.Many2one('liy.ydms.classroom', string='Trường học', domain="[('school_id', '=?', school_id)]")
-	
+
 	#Related data and store
 	is_board_manager = fields.Boolean(related='partner_id.is_board_manager', stored = True)
 	is_teacher = fields.Boolean(related='partner_id.is_teacher', stored = True)
