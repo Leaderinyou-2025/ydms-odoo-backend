@@ -7,3 +7,5 @@ from . import base
 from . import share_directories
 
 from . import category
+
+from . import app_version
