@@ -1,5 +1,51 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
         <data>
+                <!-- Form view-->
+                <record id="ydms_school_view_form" model="ir.ui.view">
+                        <field name="name">liy.ydms.category.form</field>
+                        <field name="model">liy.ydms.category</field>
+                        <field name="arch" type="xml">
+                                <form string="Chủ đề">
+                                        <sheet>
+                                                <field name="image_1920" widget='image' class="oe_avatar"
+                                                       options='{"zoom": true, "preview_image": "image_128"}'/>
+                                                <group>
+                                                        <group>
+                                                                <field name="name"/>
+                                                                <field name="tags"/>
+                                                        </group>
+                                                        <group>
+                                                                <field name="area_of_expertise"/>
+                                                                <field name="desciption"/>
+                                                        </group>
+                                                </group>
+                                        </sheet>
+                                        <chatter/>
+                                </form>
+                        </field>
+                </record>
+                <!-- List view -->
+                <record id="ydms_category_view_tree" model="ir.ui.view">
+                        <field name="name">liy.ydms.category.tree</field>
+                        <field name="model">liy.ydms.category</field>
+                        <field name="arch" type="xml">
+                                <list string="Danh mục">
+                                        <field name="name"/>
+                                        <field name="tags"/>
+                                        <field name="desciption"/>
+                                        <field name="area_of_expertise"/>
+                                </list>
+                        </field>
+                </record>
+                <!-- Action -->
+                <record id="ydms_category_action" model="ir.actions.act_window">
+                        <field name="name">Chủ đề</field>
+                        <field name="res_model">liy.ydms.category</field>
+                        <field name="view_mode">list,form</field>
+                </record>
+                <!-- Menu item-->
+                <menuitem name="Chủ đề" id="category_menu" parent="ydms_content_menu"
+                          action="ydms_category_action" sequence="10"/>
         </data>
 </odoo>
