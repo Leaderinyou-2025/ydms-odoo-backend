@@ -6,5 +6,6 @@ access_ydms_district_user,access.liy.ydms.district.user,model_liy_ydms_district,
 access_ydms_precint_user,access.liy.ydms.precint.user,model_liy_ydms_precint,base.group_user,1,1,1,1
 
 access_ydms_avatars_user,access.liy.ydms.avatars.user,model_liy_ydms_avatar,base.group_user,1,1,1,1
+access_ydms_category_user,access.liy.ydms.category.user,model_liy_ydms_category,base.group_user,1,1,1,1
 
 access_ydms_app_version_user,access.liy.ydms.app.version.user,model_liy_ydms_app_version,base.group_user,1,1,1,1

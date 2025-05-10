@@ -4,6 +4,5 @@
 #    Author: Oceantech Team
 #############################################################################
 from . import models
-# from . import reports
-# from . import integrate
-from . import controllers
+from . import reports
+from . import integrate
