@@ -32,6 +32,7 @@
 
 		# Biz
 		'views/category_views.xml',
+		'views/app_version_views.xml',
 	],
 	'demo': [],
 	'images': [],

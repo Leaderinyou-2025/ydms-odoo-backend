@@ -11,5 +11,7 @@
                 <menuitem id="ydms_content_menu" name="Nội dung chuyên môn" parent="ydms_root_menu" sequence="200"/>
                 <!-- Quản lý người dùng -->
                 <menuitem id="user_management_menu" name="Quản lý người dùng" parent="ydms_root_menu" sequence="300"/>
+                <!-- Thiết lập -->
+                <menuitem id="ydms_setting_menu" name="Thiết lập" parent="ydms_root_menu" sequence="400"/>
         </data>
 </odoo>
