@@ -1,5 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <data>
-        </data>
+    <data>
+        <record id="view_user_form_inherit_ydms" model="ir.ui.view">
+            <field name="name">res.user.form.inherit.ydms</field>
+            <field name="model">res.users</field>
+            <field name="inherit_id" ref="base.view_users_form"/>
+            <field name="arch" type="xml">
+                <!-- Thêm sau phần Related Partner -->
+                <xpath expr="//field[@name='login']" position="after">
+                    <group>
+                        <label for="school_id" string="Nhà trường"/>
+                        <h2><field name="school_id"/></h2>
+                        <label for="classroom_id" string="Lớp học"/>
+                        <h2><field name="classroom_id" readonly="not school_id" domain="[('school_id', '=', school_id)]"/></h2>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+        <!-- Nhà trường và giáo viên -->
+        <record id="ydms_school_user_view_tree" model="ir.ui.view">
+            <field name="name">res.users.school_user.tree</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <list create="0">
+                    <field name="classroom_id"/>
+                    <field name="school_id"/>
+                    <field name="name" string="Tên"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="ydms_school_user_view_form" model="ir.ui.view">
+            <field name="name">res.users.school_user.form</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <form create="0">
+                    <sheet>
+                        <group>
+                            <field name="classroom_id"/>
+                            <field name="school_id"/>
+                            <field name="name" string="Tên"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="ydms_school_user_action" model="ir.actions.act_window">
+            <field name="name">Nhà trường và giáo viên</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'list', 'view_id': ref('ydms_school_user_view_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('ydms_school_user_view_form')})]"/>
+            <field name="domain">[
+                '|',
+                ('is_board_manager', '=', True),
+                ('is_teacher', '=', True)
+                ]
+            </field>
+        </record>
+        <!-- Học sinh -->
+        <record id="ydms_student_view_tree" model="ir.ui.view">
+            <field name="name">res.users.student.tree</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <list create="0">
+                    <field name="classroom_id"/>
+                    <field name="school_id"/>
+                    <field name="name" string="Tên"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="ydms_student_view_form" model="ir.ui.view">
+            <field name="name">res.users.student.form</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <form create="0">
+                    <sheet>
+                        <group>
+                            <field name="classroom_id"/>
+                            <field name="school_id"/>
+                            <field name="name" string="Tên"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="ydms_student_action" model="ir.actions.act_window">
+            <field name="name">Học sinh</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'list', 'view_id': ref('ydms_student_view_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('ydms_student_view_form')})]"/>
+            <field name="domain">[('is_teenager', '=', True)]</field>
+        </record>
+        <!-- Cha mẹ - Người giám hộ -->
+        <record id="ydms_parent_view_tree" model="ir.ui.view">
+            <field name="name">res.users.parent.tree</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <list create="0">
+                    <field name="classroom_id"/>
+                    <field name="school_id"/>
+                    <field name="name" string="Tên"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="ydms_parent_view_form" model="ir.ui.view">
+            <field name="name">res.users.parent.form</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <form create="0">
+                    <sheet>
+                        <group>
+                            <field name="classroom_id"/>
+                            <field name="school_id"/>
+                            <field name="name" string="Tên"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="ydms_parent_action" model="ir.actions.act_window">
+            <field name="name">Cha mẹ - Người giám hộ</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'list', 'view_id': ref('ydms_parent_view_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('ydms_parent_view_form')})]"/>
+            <field name="domain">[('is_parent', '=', True)]</field>
+        </record>
+        <!-- Chuyên gia -->
+        <record id="ydms_expert_view_tree" model="ir.ui.view">
+            <field name="name">res.users.expert.tree</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <list create="0">
+                    <field name="classroom_id"/>
+                    <field name="school_id"/>
+                    <field name="name" string="Tên"/>
+                </list>
+            </field>
+        </record>
+
+        <record id="ydms_expert_view_form" model="ir.ui.view">
+            <field name="name">res.users.expert.form</field>
+            <field name="model">res.users</field>
+            <field name="arch" type="xml">
+                <form create="0">
+                    <sheet>
+                        <group>
+                            <field name="classroom_id"/>
+                            <field name="school_id"/>
+                            <field name="name" string="Tên"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="ydms_expert_action" model="ir.actions.act_window">
+            <field name="name">Chuyên gia</field>
+            <field name="res_model">res.users</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'list', 'view_id': ref('ydms_expert_view_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('ydms_expert_view_form')})]"/>
+            <field name="domain">[('is_expert', '=', True)]</field>
+        </record>
+        <!-- Menu item-->
+        <menuitem name="Nhà trường và giáo viên" id="school_user_menu" parent="user_management_menu"
+                  action="ydms_school_user_action" sequence="10"/>
+        <menuitem name="Học sinh" id="student_menu" parent="user_management_menu"
+                  action="ydms_student_action" sequence="11"/>
+        <menuitem name="Cha mẹ - Người giám hộ" id="parent_menu" parent="user_management_menu"
+                  action="ydms_parent_action" sequence="12"/>
+        <menuitem name="Chuyên gia" id="expert_menu" parent="user_management_menu"
+                  action="ydms_expert_action" sequence="13"/>
+    </data>
 </odoo>

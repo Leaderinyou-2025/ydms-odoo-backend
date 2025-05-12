@@ -15,5 +15,5 @@ class YDMSClassroom(models.Model):
 
     name = fields.Char(string=u'Tên lớp', required=True, tracking=True)
     code = fields.Char(string=u'Mã lớp', tracking=True)
-    school_id = fields.Many2one(string=u'Trường', tracking=True)
+    school_id = fields.Many2one('res.partner',string=u'Trường', tracking=True)
 
