@@ -30,9 +30,17 @@
 		'views/base/partner_views.xml',
 		'views/base/users_views.xml',
 
+		# Integrate
+		'views/integrate/fcm_notification_views.xml',
+		'views/integrate/fcm_notification_log_views.xml',
+
 		# Biz
 		'views/category_views.xml',
 		'views/app_version_views.xml',
+		'views/emotional_question_views.xml',
+		'views/emotional_answer_option_views.xml',
+		'views/emotional_diary_views.xml',
+
 	],
 	'demo': [],
 	'images': [],
