@@ -13,5 +13,7 @@
                 <menuitem id="user_management_menu" name="Quản lý người dùng" parent="ydms_root_menu" sequence="300"/>
                 <!-- Thiết lập -->
                 <menuitem id="ydms_setting_menu" name="Thiết lập" parent="ydms_root_menu" sequence="400"/>
+                <!-- Thông báo -->
+                <menuitem id="ydms_notification_menu" name="Thông báo" parent="ydms_root_menu" sequence="500"/>
         </data>
 </odoo>
