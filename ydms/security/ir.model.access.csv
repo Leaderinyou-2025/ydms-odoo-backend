@@ -13,3 +13,7 @@ access_ydms_app_version_user,access.liy.ydms.app.version.user,model_liy_ydms_app
 
 access_ydms_notification_user,access.liy.ydms.notification.user,model_liy_ydms_notification,base.group_user,1,1,1,1
 access_ydms_notification_log_user,access.liy.ydms.notification.log.user,model_liy_ydms_notification_log,base.group_user,1,1,1,1
+
+access_ydms_emotional_answer_option_user,access.liy.ydms.emotional.answer.option.user,model_liy_ydms_emotional_answer_option,base.group_user,1,1,1,1
+access_ydms_emotional_question_user,access.liy.ydms.emotional.question.user,model_liy_ydms_emotional_question,base.group_user,1,1,1,1
+access_ydms_emotional_diary_user,access.liy.ydms.emotional.diary.user,model_liy_ydms_emotional_diary,base.group_user,1,1,1,1
