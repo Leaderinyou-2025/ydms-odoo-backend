@@ -1,5 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <data>
-        </data>
+    <data>
+        <!-- Form view-->
+        <record id="ydms_emotional_question_view_form" model="ir.ui.view">
+            <field name="name">liy.ydms.emotional.question.form</field>
+            <field name="model">liy.ydms.emotional.question</field>
+            <field name="arch" type="xml">
+                <form string="Câu hỏi cảm xúc">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="encourage_interaction"/>
+                            </group>
+                            <group>
+                                <field name="rank_point"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Các phương án trả lời">
+                                <field name="answer_ids">
+                                    <list editable="bottom">
+                                        <field name="name" string="Câu trả lời" required="True"/>
+                                        <field name="scores" string="Điểm chuyên môn" required="True"/>
+                                        <field name="encourage" string="Câu động viên" widget="html"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree view -->
+        <record id="ydms_emotional_question_view_tree" model="ir.ui.view">
+            <field name="name">liy.ydms.emotional.question.tree</field>
+            <field name="model">liy.ydms.emotional.question</field>
+            <field name="arch" type="xml">
+                <list string="Câu hỏi cảm xúc">
+                    <field name="name"/>
+                    <field name="rank_point"/>
+                    <field name="answer_ids" widget="many2many_tags"/>
+                </list>
+            </field>
+        </record>
+        <!-- Action-->
+        <record id="emotional_question_action" model="ir.actions.act_window">
+            <field name="name">Câu hỏi cảm xúc</field>
+            <field name="res_model">liy.ydms.emotional.question</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <!-- Menu item-->
+        <menuitem name="Câu hỏi cảm xúc" id="emotional_question_menu" parent="ydms_content_menu"
+                  action="emotional_question_action" sequence="20"/>
+    </data>
 </odoo>
