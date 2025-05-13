@@ -9,7 +9,7 @@
                 <form string="Câu hỏi cảm xúc">
                     <sheet>
                         <field name="image_1920" widget='image' class="oe_avatar"
-                                                       options='{"zoom": true, "preview_image": "image_128"}'/>
+                               options='{"zoom": true, "preview_image": "image_128"}'/>
                         <group>
                             <group>
                                 <field name="question_id"/>
@@ -18,6 +18,7 @@
                             </group>
                             <group>
                                 <field name="encourage"/>
+                                <field name="order_weight"/>
                             </group>
                         </group>
                         <notebook>
@@ -42,12 +43,13 @@
             <field name="model">liy.ydms.emotional.answer.option</field>
             <field name="arch" type="xml">
                 <list string="Câu hỏi cảm xúc">
+                    <field name="order_weight" string="⠿" widget="handle"/>
                     <field name="image_1920" string="Icon" widget='image' options="{'preview_image': 'image_128'}"/>
                     <field name="question_id"/>
                     <field name="name"/>
                     <field name="scores"/>
                     <field name="encourage"/>
-                    <field name="guide_category_ids"  widget="many2many_tags"/>
+                    <field name="guide_category_ids" widget="many2many_tags"/>
                 </list>
             </field>
         </record>
@@ -56,7 +58,7 @@
             <field name="name">Câu hỏi cảm xúc</field>
             <field name="res_model">liy.ydms.emotional.answer.option</field>
             <field name="view_mode">list,form</field>
-            <field name="context">{'group_by':'question_id'}</field>
+            <field name="context">{}</field>
         </record>
         <!-- Menu item-->
         <menuitem name="Câu trả lời cảm xúc" id="emotional_answer_menu" parent="ydms_content_menu"

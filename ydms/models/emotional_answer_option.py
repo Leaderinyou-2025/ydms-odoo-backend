@@ -12,7 +12,7 @@ class YDMSEmotionalAnswerOption(models.Model):
 	_name = 'liy.ydms.emotional.answer.option'
 	_description = u'Câu hỏi cảm xúc - Các phương án trả lời câu hỏi'
 	_inherit = ['image.mixin']
-	_order = 'name asc'
+	_order = 'question_id, order_weight'
 
 	# Master field
 	question_id = fields.Many2one('liy.ydms.emotional.question', string=u'Câu hỏi', required=True)
@@ -22,5 +22,5 @@ class YDMSEmotionalAnswerOption(models.Model):
 	scores = fields.Integer(string=u'Điểm chuyên môn', required=True)
 	encourage = fields.Html(string=u'Câu động viên')
 	guide_category_ids = fields.Many2many('liy.ydms.category', string=u'Hướng dẫn điều tiết cảm xúc')
-	order_weight = fields.Integer(string=u'Thứ tự hiển thị')
+	order_weight = fields.Integer(string=u'Thứ tự hiển thị', default=1)
 

@@ -21,9 +21,11 @@
                             <page string="Các phương án trả lời">
                                 <field name="answer_ids">
                                     <list editable="bottom">
+                                        <field name="order_weight" string="⠿" widget="handle"/>
                                         <field name="name" string="Câu trả lời" required="True"/>
                                         <field name="scores" string="Điểm chuyên môn" required="True"/>
                                         <field name="encourage" string="Câu động viên" widget="html"/>
+                                        <field name="guide_category_ids"  widget="many2many_tags"/>
                                     </list>
                                 </field>
                             </page>
