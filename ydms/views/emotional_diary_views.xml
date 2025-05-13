@@ -1,5 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <data>
-        </data>
+    <data>
+        <!-- Form view-->
+        <record id="ydms_emotional_diary_view_form" model="ir.ui.view">
+            <field name="name">liy.ydms.emotional.diary.form</field>
+            <field name="model">liy.ydms.emotional.diary</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <field name="answer_icon" widget='image' class="oe_avatar"
+                               options='{"zoom": true, "preview_image": "image_128"}'/>
+                        <group>
+                            <group>
+                                <field name="teenager_id"/>
+                                <field name="question_id"/>
+                                <field name="answer_text"/>
+                                <field name="rank_point"/>
+                            </group>
+                            <group>
+                                <field name="nickname"/>
+                                <field name="answer_id"/>
+                                <field name="rank_point"/>
+                                <field name="scores"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Tree view -->
+        <record id="ydms_emotional_diary_view_tree" model="ir.ui.view">
+            <field name="name">liy.ydms.emotional.diary.tree</field>
+            <field name="model">liy.ydms.emotional.diary</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="answer_icon" widget='image' options="{'preview_image': 'image_128'}"/>
+                    <field name="nickname"/>
+                    <field name="question_id"/>
+                    <field name="answer_id"/>
+                    <field name="answer_text"/>
+                </list>
+            </field>
+        </record>
+        <!-- Action-->
+        <record id="emotional_diary_action" model="ir.actions.act_window">
+            <field name="name">Câu hỏi cảm xúc</field>
+            <field name="res_model">liy.ydms.emotional.diary</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <!-- Menu item-->
+        <menuitem name="Nhật ký cảm xúc" id="emotional_diary_menu" parent="ydms_content_menu"
+                  action="emotional_diary_action" sequence="40"/>
+    </data>
 </odoo>

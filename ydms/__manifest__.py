@@ -43,6 +43,9 @@
 		'views/assessment_answer_option_views.xml',
 		'views/assessment_question_views.xml',
 		'views/assessment_views.xml',
+		'views/guide_views.xml',
+		'views/badge_views.xml',
+		'views/leadership_views.xml',
 
 	],
 	'demo': [],
