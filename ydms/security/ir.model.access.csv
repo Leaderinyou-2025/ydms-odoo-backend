@@ -17,3 +17,7 @@ access_ydms_notification_log_user,access.liy.ydms.notification.log.user,model_li
 access_ydms_emotional_answer_option_user,access.liy.ydms.emotional.answer.option.user,model_liy_ydms_emotional_answer_option,base.group_user,1,1,1,1
 access_ydms_emotional_question_user,access.liy.ydms.emotional.question.user,model_liy_ydms_emotional_question,base.group_user,1,1,1,1
 access_ydms_emotional_diary_user,access.liy.ydms.emotional.diary.user,model_liy_ydms_emotional_diary,base.group_user,1,1,1,1
+
+access_ydms_assessment_user,access.liy.ydms.assessment.user,model_liy_ydms_assessment,base.group_user,1,1,1,1
+access_ydms_assessment_question_user,access.liy.ydms.assessment.question.user,model_liy_ydms_assessment_question,base.group_user,1,1,1,1
+access_ydms_assessment_answer_option_user,access.liy.ydms.assessment.answer.option.user,model_liy_ydms_assessment_answer_option,base.group_user,1,1,1,1
