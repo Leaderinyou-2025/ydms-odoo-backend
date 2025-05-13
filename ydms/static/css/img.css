@@ -1,0 +1,9 @@
+.o_list_view .o_field_image {
+    width: 36px !important;
+    height: 36px !important;
+}
+
+.o_list_view .o_field_image img {
+    border-radius: 50% !important;
+    object-fit: cover;
+}

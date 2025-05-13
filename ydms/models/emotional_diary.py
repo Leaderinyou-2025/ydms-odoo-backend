@@ -23,4 +23,3 @@ class YDMSEmotionalDiary(models.Model):
 	answer_icon = fields.Image(string=u'Biểu tượng trả lời', related='answer_id.image_1920')
 	rank_point = fields.Integer(related='question_id.rank_point')
 	scores = fields.Integer(related='answer_id.scores')
-

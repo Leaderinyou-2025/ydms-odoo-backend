@@ -44,11 +44,16 @@
 		'views/assessment_question_views.xml',
 		'views/assessment_views.xml',
 
-	],
-	'demo': [],
-	'images': [],
-	'license': 'LGPL-3',
-	'installable': True,
-	'auto_install': False,
-	'application': True,
+    ],
+    'assets': {
+        'web.assets_backend': [
+            'ydms/static/css/img.css',
+        ],
+    },
+    'demo': [],
+    'images': [],
+    'license': 'LGPL-3',
+    'installable': True,
+    'auto_install': False,
+    'application': True,
 }
