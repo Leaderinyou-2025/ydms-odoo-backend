@@ -40,6 +40,9 @@
 		'views/emotional_question_views.xml',
 		'views/emotional_answer_option_views.xml',
 		'views/emotional_diary_views.xml',
+		'views/assessment_answer_option_views.xml',
+		'views/assessment_question_views.xml',
+		'views/assessment_views.xml',
 
 	],
 	'demo': [],

@@ -13,3 +13,7 @@ from . import app_version
 from . import emotional_question
 from . import emotional_answer_option
 from . import emotional_diary
+
+from . import assessment
+from . import assessment_question
+from . import assessment_answer_option
