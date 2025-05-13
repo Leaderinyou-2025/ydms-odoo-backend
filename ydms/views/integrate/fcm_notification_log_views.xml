@@ -1,5 +1,59 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <data>
-        </data>
+    <data>
+        <!-- Form View for YDMS Notification Log -->
+        <record id="view_ydms_notification_log_form" model="ir.ui.view">
+            <field name="name">liy.ydms.notification.log.form</field>
+            <field name="model">liy.ydms.notification.log</field>
+            <field name="arch" type="xml">
+                <form string="Nhật ký gửi thông báo">
+                    <sheet>
+                        <group>
+                            <field name="notification_id" options="{'no_create': True, 'no_open': True}"/>
+                            <field name="recipient_ids" options="{'no_create': True}"/>
+                            <field name="state"/>
+                        </group>
+                        <group>
+                            <field name="success_count"/>
+                            <field name="fail_count"/>
+                            <field name="completed_on"/>
+                            <field name="message"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Tree View for YDMS Notification Log -->
+        <record id="view_ydms_notification_log_tree" model="ir.ui.view">
+            <field name="name">liy.ydms.notification.log.tree</field>
+            <field name="model">liy.ydms.notification.log</field>
+            <field name="arch" type="xml">
+                <list string="Nhật ký gửi thông báo">
+                    <field name="create_date" string="Ngày tạo"/>
+                    <field name="notification_id" string="Thông báo"/>
+                    <field name="recipient_ids" string="Người nhận"/>
+                    <field name="state" string="Trạng thái"/>
+                    <field name="success_count" string="Số lượng hoàn thành" width="150"/>
+                    <field name="fail_count" string="Số lượng thất bại" width="150"/>
+                    <field name="completed_on" string="Ngày hoàn thành"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Action for YDMS Notification Log -->
+        <record id="action_ydms_notification_log" model="ir.actions.act_window">
+            <field name="name">Nhật ký gửi thông báo</field>
+            <field name="res_model">liy.ydms.notification.log</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_id" ref="view_ydms_notification_log_tree"/>
+        </record>
+
+        <!-- Menu Item for YDMS Notification log-->
+        <menuitem id="menu_ydms_notification_log"
+                  name="Nhật ký gửi thông báo"
+                  action="action_ydms_notification_log"
+                  parent="ydms_notification_menu"
+                  sequence="20"/>
+    </data>
 </odoo>
