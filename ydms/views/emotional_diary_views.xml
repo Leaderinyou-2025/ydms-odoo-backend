@@ -9,7 +9,7 @@
                 <form>
                     <sheet>
                         <field name="answer_icon" widget='image' class="oe_avatar"
-                                                       options='{"zoom": true, "preview_image": "image_128"}'/>
+                               options='{"zoom": true, "preview_image": "image_128"}'/>
                         <group>
                             <group>
                                 <field name="teenager_id"/>

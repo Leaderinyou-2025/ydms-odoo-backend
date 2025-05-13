@@ -17,3 +17,7 @@ from . import emotional_diary
 from . import assessment
 from . import assessment_question
 from . import assessment_answer_option
+
+from . import guide
+from . import badge
+from . import leadership
