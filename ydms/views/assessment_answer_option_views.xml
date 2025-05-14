@@ -1,5 +1,62 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <data>
-        </data>
+    <data>
+        <!-- Answer Option List View -->
+        <record id="view_ydms_assessment_answer_option_tree" model="ir.ui.view">
+            <field name="name">liy.ydms.assessment.answer.option.tree</field>
+            <field name="model">liy.ydms.assessment.answer.option</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="image_1920" widget="image" class="oe_avatar" string="Biểu tượng"/>
+                    <field name="name"/>
+                    <field name="question_id"/>
+                    <field name="encourage"/>
+                    <field name="scores" width="150"/>
+                    <field name="order_weight" width="150"/>
+                </list>
+            </field>
+        </record>
+
+        <!--  Answer Option Form View-->
+        <record id="view_ydms_assessment_answer_option_form" model="ir.ui.view">
+            <field name="name">liy.ydms.assessment.answer.option.form</field>
+            <field name="model">liy.ydms.assessment.answer.option</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <group col="3">
+                            <group>
+                                <field name="question_id"/>c
+                                <field name="scores"/>
+                                <field name="order_weight"/>
+                            </group>
+                            <group>
+                                <field name="encourage"/>
+                                <field name="guide_category_ids" widget="many2many_tags"/>
+                            </group>
+                            <group>
+                                <field name="image_1920" widget="image" string="Biểu tượng" class="oe_avatar"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+
+        <!-- Action for Answer Option -->
+        <record id="action_ydms_assessment_answer_option" model="ir.actions.act_window">
+            <field name="name">Phương án trả lời</field>
+            <field name="res_model">liy.ydms.assessment.answer.option</field>
+            <field name="view_mode">list,form</field>
+        </record>
+
+        <!-- Menu Item for Answer Option -->
+        <menuitem id="menu_ydms_assessment_answer_option" name="Bảng hỏi - Các phương án trả lời"
+                  parent="ydms_content_menu"
+                  action="action_ydms_assessment_answer_option" sequence="70"/>
+    </data>
 </odoo>

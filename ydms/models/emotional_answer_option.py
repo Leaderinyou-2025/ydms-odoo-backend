@@ -23,4 +23,4 @@ class YDMSEmotionalAnswerOption(models.Model):
 	encourage = fields.Html(string=u'Câu động viên')
 	guide_category_ids = fields.Many2many('liy.ydms.category', string=u'Hướng dẫn điều tiết cảm xúc')
 
-  order_weight = fields.Integer(string=u'Thứ tự hiển thị', default=1)
+	order_weight = fields.Integer(string=u'Thứ tự hiển thị', default=1)

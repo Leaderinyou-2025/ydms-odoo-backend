@@ -1,5 +1,72 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <data>
-        </data>
+    <data>
+        <!-- Assessment Tree View -->
+        <record id="view_ydms_assessment_tree" model="ir.ui.view">
+            <field name="name">liy.ydms.assessment.tree</field>
+            <field name="model">liy.ydms.assessment</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="area_of_expertise"/>
+                    <field name="subject"/>
+                    <field name="assessment_type"/>
+                    <field name="execution_date" width="200"/>
+                    <field name="active" string="Kích hoạt"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Assessment Form View -->
+        <record id="view_ydms_assessment_form" model="ir.ui.view">
+            <field name="name">liy.ydms.assessment.form</field>
+            <field name="model">liy.ydms.assessment</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="area_of_expertise"/>
+                                <field name="subject"/>
+                                <field name="assessment_type"/>
+                            </group>
+                            <group>
+                                <field name="execution_date"/>
+                                <field name="rank_point"/>
+                                <field name="active" string="Kích hoạt"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="description"/>
+                        </group>
+                        <notebook>
+                            <page string="Questions">
+                                <field name="question_ids">
+                                    <list editable="bottom">
+                                        <field name="name"/>
+                                        <field name="answer_type"/>
+                                        <field name="display_type"/>
+                                        <field name="scores" width="150"/>
+                                        <field name="order_weight" width="150"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- Action for Assessment -->
+        <record id="action_ydms_assessment" model="ir.actions.act_window">
+            <field name="name">Bảng hỏi</field>
+            <field name="res_model">liy.ydms.assessment</field>
+            <field name="view_mode">list,form</field>
+            <field name="context">{'active_test': False}</field>
+        </record>
+
+        <menuitem id="menu_ydms_assessment" name="Bảng hỏi" parent="ydms_content_menu"
+                  action="action_ydms_assessment" sequence="50"/>
+    </data>
 </odoo>

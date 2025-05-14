@@ -26,7 +26,7 @@ class YDMSAssessmentQuestion(models.Model):
 	], default='option', string=u'Kiểu câu trả lời', required=True)
 
 	# Chỉ áp dụng với answer_type=option
-	answer_ids = fields.One2many('liy.ydms.emotional.answer.option', 'question_id', string=u'Các phương án trả lời')
+	answer_ids = fields.One2many('liy.ydms.assessment.answer.option', 'question_id', string=u'Các phương án trả lời')
 	display_type = fields.Selection([
 		('text_only', 'Chỉ hiển thị text'),
 		('icon_only', 'Chỉ hiển thị biểu tượng'),
