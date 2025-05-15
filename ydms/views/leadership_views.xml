@@ -1,5 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <data>
-        </data>
+    <data>
+        <!-- Form view-->
+        <record id="view_ydms_leadership_form" model="ir.ui.view">
+            <field name="name">ydms.leadership.form</field>
+            <field name="model">liy.ydms.leadership</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Nhập tháng..."/>
+                            </h1>
+                        </div>
+
+                        <group>
+                            <group>
+                                <field name="teenager_id" required="1"/>
+                                <field name="nickname" readonly="1"/>
+                                <field name="parent_id" readonly="1"/>
+                                <field name="area_of_expertise"/>
+                            </group>
+
+                            <group>
+                                <field name="total_points"/>
+                                <field name="ranking"/>
+                                <field name="rank_month"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- List view -->
+        <record id="view_ydms_leadership_tree" model="ir.ui.view">
+            <field name="name">liy.ydms.leadership.tree</field>
+            <field name="model">liy.ydms.leadership</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="teenager_id" width="120"/>
+                    <field name="name" width="250"/>
+                    <field name="area_of_expertise" width="180"/>
+                    <field name="parent_id" width="90"/>
+                    <field name="rank_month" width="90"/>
+                    <field name="total_points" width="90"/>
+                    <field name="ranking" width="90"/>
+                </list>
+            </field>
+        </record>
+        <!-- Action -->
+        <record id="ydms_leadership_action" model="ir.actions.act_window">
+            <field name="name">Xếp hạng</field>
+            <field name="res_model">liy.ydms.leadership</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <!-- Menu item-->
+        <menuitem name="Xếp hạng" id="guide_menu" parent="ydms_personal_menu"
+                  action="ydms_leadership_action" sequence="60"/>
+    </data>
 </odoo>

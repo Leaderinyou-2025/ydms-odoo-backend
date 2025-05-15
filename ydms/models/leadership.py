@@ -26,5 +26,5 @@ class YDMSLeadership(models.Model):
 	total_points = fields.Integer(u'Tổng điểm trong tháng')
 	ranking = fields.Integer(u'Xếp hạng')
 	rank_month = fields.Char(u'Tháng xếp hạng')
-	parent_id = fields.Many2one('res.user', related = 'teenager_id.parent_id')
+	parent_id = fields.Many2one('res.users', related='teenager_id.parent_id')
 

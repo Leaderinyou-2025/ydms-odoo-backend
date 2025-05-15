@@ -1,5 +1,93 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <data>
-        </data>
+    <data>
+        <!-- Form view-->
+        <record id="view_ydms_badge_form" model="ir.ui.view">
+            <field name="name">liy.ydms.badge.form</field>
+            <field name="model">liy.ydms.badge</field>
+            <field name="arch" type="xml">
+                <form string="Chủ đề">
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="area_of_expertise"/>
+                                <field name="condition"/>
+                                <field name="condition_value"/>
+                                <field name="order_weight"/>
+                                <field name="desciption" placeholder="Nhập mô tả chi tiết về huy hiệu..."/>
+                            </group>
+                            <group>
+                                <field name="active_image" widget="image" class="oe_avatar"/>
+                                <field name="review_image" widget="image" class="oe_avatar"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- List view -->
+        <record id="view_ydms_badge_tree" model="ir.ui.view">
+            <field name="name">liy.ydms.badge.tree</field>
+            <field name="model">liy.ydms.badge</field>
+            <field name="arch" type="xml">
+                <list string="Huy hiệu">
+                    <field name="order_weight" string="⠿" widget="handle"/>
+                    <field name="active_image" widget="image" class="oe_avatar"/>
+                    <field name="name"/>
+                    <field name="desciption"/>
+                    <field name="condition"/>
+                    <field name="area_of_expertise"/>
+                </list>
+            </field>
+        </record>
+        <!-- Kanban view -->
+        <record id="view_ydms_badge_kanban" model="ir.ui.view">
+            <field name="name">liy.ydms.badge.kanban</field>
+            <field name="model">liy.ydms.badge</field>
+            <field name="arch" type="xml">
+                <kanban class="o_kanban_small_column">
+                    <field name="active_image"/>
+                    <field name="review_image"/>
+                    <field name="name"/>
+                    <field name="area_of_expertise"/>
+                    <templates>
+                        <t t-name="card">
+                            <div class="row">
+                                <div class="col-3 justify-content-center">
+                                    <aside class="o_kanban_aside_full">
+                                        <div class="o_kanban_img_full position-relative"
+                                             style="width: 80px; height: 80px;">
+                                            <field name="active_image" widget="image"
+                                                   class="w-100 h-100 rounded-circle"/>
+                                        </div>
+                                    </aside>
+                                </div>
+                                <div class="col-9">
+                                    <div class="o_kanban_details">
+                                        <strong>
+                                            <field name="name"/>
+                                        </strong>
+                                        <br/>
+                                        <small>
+                                            <field name="area_of_expertise"/>
+                                        </small>
+                                    </div>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+        <!-- Action -->
+        <record id="ydms_badge_action" model="ir.actions.act_window">
+            <field name="name">Huy hiệu</field>
+            <field name="res_model">liy.ydms.badge</field>
+            <field name="view_mode">kanban,list,form</field>
+        </record>
+        <!-- Menu item-->
+        <menuitem name="Danh mục Huy hiệu" id="badge_menu" parent="ydms_content_menu"
+                  action="ydms_badge_action" sequence="50"/>
+    </data>
 </odoo>

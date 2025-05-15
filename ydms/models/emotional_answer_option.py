@@ -9,18 +9,17 @@ from odoo.exceptions import UserError, ValidationError
 
 
 class YDMSEmotionalAnswerOption(models.Model):
-	_name = 'liy.ydms.emotional.answer.option'
-	_description = u'Câu hỏi cảm xúc - Các phương án trả lời câu hỏi'
-	_inherit = ['image.mixin']
-	_order = 'question_id, order_weight'
+    _name = 'liy.ydms.emotional.answer.option'
+    _description = u'Câu hỏi cảm xúc - Các phương án trả lời câu hỏi'
+    _inherit = ['image.mixin']
+    _order = 'question_id, order_weight'
 
-	# Master field
-	question_id = fields.Many2one('liy.ydms.emotional.question', string=u'Câu hỏi', required=True)
+    # Master field
+    question_id = fields.Many2one('liy.ydms.emotional.question', string=u'Câu hỏi', required=True)
 
-	# Data fields
-	name = fields.Char(string=u'Câu trả lời', required=True)
-	scores = fields.Integer(string=u'Điểm chuyên môn', required=True)
-	encourage = fields.Html(string=u'Câu động viên')
-	guide_category_ids = fields.Many2many('liy.ydms.category', string=u'Hướng dẫn điều tiết cảm xúc')
-
-	order_weight = fields.Integer(string=u'Thứ tự hiển thị', default=1)
+    # Data fields
+    name = fields.Char(string=u'Câu trả lời', required=True)
+    scores = fields.Integer(string=u'Điểm chuyên môn', required=True)
+    encourage = fields.Html(string=u'Câu động viên')
+    guide_category_ids = fields.Many2many('liy.ydms.category', string=u'Hướng dẫn điều tiết cảm xúc')
+    order_weight = fields.Integer(string=u'Thứ tự hiển thị', default=1)
