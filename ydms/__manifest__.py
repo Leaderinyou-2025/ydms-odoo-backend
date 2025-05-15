@@ -46,8 +46,11 @@
 		'views/guide_views.xml',
 		'views/badge_views.xml',
 		'views/leadership_views.xml',
+		'views/achievement_views.xml',
+		'views/experience_views.xml',
+		'views/experience_review_views.xml',
 
-    ],
+	],
     'assets': {
         'web.assets_backend': [
             'ydms/static/css/img.css',

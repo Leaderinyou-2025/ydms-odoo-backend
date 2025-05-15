@@ -38,4 +38,4 @@ class YDMSAssessment(models.Model):
 	question_ids = fields.One2many('liy.ydms.assessment.question', 'assessment_id', string=u'Danh sách câu hỏi')
 	rank_point = fields.Integer(u'Điểm thưởng xếp hạng')
 
-	active = fields.Boolean(u'Có hiệu lực')
+	active = fields.Boolean(u'Có hiệu lực', default=True)
