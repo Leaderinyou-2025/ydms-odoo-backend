@@ -25,3 +25,7 @@ access_ydms_assessment_answer_option_user,access.liy.ydms.assessment.answer.opti
 access_ydms_guide_user,access.liy.ydms.guide.user,model_liy_ydms_guide,base.group_user,1,1,1,1
 access_ydms_badge_user,access.liy.ydms.badge.user,model_liy_ydms_badge,base.group_user,1,1,1,1
 access_ydms_leadership_user,access.liy.ydms.leadership.user,model_liy_ydms_leadership,base.group_user,1,1,1,1
+
+access_ydms_achievement_user,access.liy.ydms.achievement.user,model_liy_ydms_achievement,base.group_user,1,1,1,1
+access_ydms_experience_user,access.liy.ydms.experience.user,model_liy_ydms_experience,base.group_user,1,1,1,1
+access_ydms_experience_review_user,access.liy.ydms.experience.review.user,model_liy_ydms_experience_review,base.group_user,1,1,1,1
