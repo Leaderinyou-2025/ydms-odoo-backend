@@ -88,6 +88,6 @@
         </record>
         <!-- Menu item-->
         <menuitem name="Danh mục Huy hiệu" id="badge_menu" parent="ydms_content_menu"
-                  action="ydms_badge_action" sequence="50"/>
+                  action="ydms_badge_action" sequence="90"/>
     </data>
 </odoo>

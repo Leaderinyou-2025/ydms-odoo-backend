@@ -20,9 +20,9 @@
                                 <field name="category_ids" widget="many2many_tags"/>
                                 <field name="age_option" string="Lứa tuổi"/>
                                 <field name="from_age" string="Từ"
-                                       invisible="from_age_visible"/>
+                                       invisible="age_option!='within'"/>
                                 <field name="to_age" string="Đến"
-                                       invisible="from_age_visible"/>
+                                       invisible="age_option!='within'"/>
 
                             </group>
                             <group>
@@ -61,6 +61,6 @@
         </record>
         <!-- Menu item-->
         <menuitem name="Bài tập, hướng dẫn chuyên môn" id="guide_menu" parent="ydms_content_menu"
-                  action="ydms_guide_action" sequence="60"/>
+                  action="ydms_guide_action" sequence="80"/>
     </data>
 </odoo>

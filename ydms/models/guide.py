@@ -42,11 +42,5 @@ class YDMSGuide(models.Model):
 	], default='all_age', string="Lứa tuổi", required=True)
 	from_age = fields.Integer(string=u'Lứa tuổi áp dụng (Từ)')
 	to_age = fields.Integer(string=u'Lứa tuổi áp dụng (Đến)')
-	from_age_visible = fields.Boolean(compute="_compute_age_visibility", store=False)
-
-	@api.depends('age_option')
-	def _compute_age_visibility(self):
-		for rec in self:
-			rec.from_age_visible = rec.age_option == 'all_age'
 
 

@@ -55,7 +55,7 @@
             <field name="view_mode">list,form</field>
         </record>
         <!-- Menu item-->
-        <menuitem name="Xếp hạng" id="guide_menu" parent="ydms_personal_menu"
+        <menuitem name="Xếp hạng" id="leadership_menu" parent="ydms_personal_menu"
                   action="ydms_leadership_action" sequence="60"/>
     </data>
 </odoo>
