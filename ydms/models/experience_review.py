@@ -12,7 +12,7 @@ class YDMSExperienceReview(models.Model):
 	_name = "liy.ydms.experience.review"
 	_description = u'Đánh giá'
 	_inherit = ['mail.thread']
-	_order = 'name desc'
+	_order = 'experience_id desc'
 
 	experience_id = fields.Many2one('liy.ydms.experience', string=u'Chia sẻ')
 	review = fields.Selection([

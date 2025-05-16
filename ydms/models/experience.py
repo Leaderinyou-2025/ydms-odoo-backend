@@ -16,8 +16,10 @@ class YDMSExperience(models.Model):
 
 	name = fields.Char(string=u'Tiêu đề', required=True, tracking=True)
 	area_of_expertise = fields.Selection([
+		('emotional', 'Điều tiết cảm xúc'),
 		('conflict', 'Giảm mâu thuẫn gia đình'),
 		('communication', 'Cải thiện giao tiếp gia đình'),
+		('discovery', 'Khám phá và phát triển bản thân'),
 	], default='emotional', string="Khía cạnh", required=True)
 	parent_id = fields.Many2one('res.users', string=u'Cha mẹ')
 	experience_content = fields.Html(string=u'Nội dung chia sẻ')

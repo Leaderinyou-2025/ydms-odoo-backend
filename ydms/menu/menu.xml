@@ -17,5 +17,9 @@
                 <menuitem id="ydms_notification_menu" name="Thông báo" parent="ydms_root_menu" sequence="500"/>
                 <!-- Cá nhân -->
                 <menuitem id="ydms_personal_menu" name="Cá nhân" parent="ydms_root_menu" sequence="600"/>
+                <!-- Gia đình -->
+                <menuitem id="ydms_family_menu" name="Gia đình" parent="ydms_root_menu" sequence="700"/>
+                <!-- Hoạt động nhóm -->
+                <menuitem id="ydms_group_menu" name="Hoạt động nhóm" parent="ydms_root_menu" sequence="800"/>
         </data>
 </odoo>

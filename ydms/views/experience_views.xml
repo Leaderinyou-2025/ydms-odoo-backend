@@ -1,5 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <data>
-        </data>
+    <data>
+        <!-- Form view-->
+        <record id="view_ydms_experience_form" model="ir.ui.view">
+            <field name="name">liy.ydms.experience.form</field>
+            <field name="model">liy.ydms.experience</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="parent_id" options="{'no_open': True}"/>
+                                <field name="area_of_expertise"/>
+                            </group>
+                            <group>
+                                <field name="total_like"/>
+                                <field name="total_love"/>
+                                <field name="active"/>
+                            </group>
+                        </group>
+
+                        <!-- Nội dung HTML -->
+                        <div class="oe_title">
+                            <label for="experience_content" string="Nội dung chi tiết"/>
+                            <field name="experience_content" class="mt16" nolabel="1"/>
+                        </div>
+
+                        <!-- Tài liệu đính kèm -->
+                        <group>
+                            <field name="attach_file" filename="attach_filename"/>
+                        </group>
+
+                        <!-- Tab cho đánh giá -->
+                        <notebook>
+                            <page string="Đánh giá">
+                                <field name="review_ids">
+                                    <list editable="bottom">
+                                        <field name="review"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- List view -->
+        <record id="view_ydms_experience_tree" model="ir.ui.view">
+            <field name="name">liy.ydms.experience.tree</field>
+            <field name="model">liy.ydms.experience</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="area_of_expertise"/>
+                    <field name="parent_id"/>
+                    <field name="experience_content"/>
+                    <field name="review_ids" widget="many2many_tags"/>
+                    <field name="active"/>
+                    <field name="total_like"/>
+                    <field name="total_love"/>
+                    <field name="status"/>
+                </list>
+            </field>
+        </record>
+        <!-- Action -->
+        <record id="action_ydms_experience" model="ir.actions.act_window">
+            <field name="name">Chia sẻ king nghiệm</field>
+            <field name="res_model">liy.ydms.experience</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'list', 'view_id': ref('view_ydms_experience_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('view_ydms_experience_form')})]"/>
+        </record>
+        <!-- Menu item-->
+        <menuitem name="Chia sẻ kinh nghiệm" id="experience_menu" parent="ydms_family_menu"
+                  action="action_ydms_experience" sequence="20"/>
+    </data>
 </odoo>

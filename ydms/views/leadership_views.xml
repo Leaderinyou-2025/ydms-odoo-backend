@@ -56,6 +56,6 @@
         </record>
         <!-- Menu item-->
         <menuitem name="Xếp hạng" id="leadership_menu" parent="ydms_personal_menu"
-                  action="ydms_leadership_action" sequence="60"/>
+                  action="ydms_leadership_action" sequence="10"/>
     </data>
 </odoo>
