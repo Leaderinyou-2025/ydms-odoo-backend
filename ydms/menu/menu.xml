@@ -15,5 +15,7 @@
                 <menuitem id="ydms_setting_menu" name="Thiết lập" parent="ydms_root_menu" sequence="400"/>
                 <!-- Thông báo -->
                 <menuitem id="ydms_notification_menu" name="Thông báo" parent="ydms_root_menu" sequence="500"/>
+                <!-- Cá nhân -->
+                <menuitem id="ydms_personal_menu" name="Cá nhân" parent="ydms_root_menu" sequence="600"/>
         </data>
 </odoo>

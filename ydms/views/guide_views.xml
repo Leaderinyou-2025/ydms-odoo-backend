@@ -1,5 +1,66 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
-        <data>
-        </data>
+    <data>
+        <!-- Form view-->
+        <record id="view_ydms_guide_form" model="ir.ui.view">
+            <field name="name">ydms.guide.form</field>
+            <field name="model">liy.ydms.guide</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <div class="oe_title">
+                            <h1>
+                                <field name="name" placeholder="Nhập tên bài tập/hướng dẫn..."/>
+                            </h1>
+                        </div>
+                        <group>
+                            <group>
+                                <field name="guide_type"/>
+                                <field name="area_of_expertise"/>
+                                <field name="category_ids" widget="many2many_tags"/>
+                                <field name="age_option" string="Lứa tuổi"/>
+                                <field name="from_age" string="Từ"
+                                       invisible="age_option!='within'"/>
+                                <field name="to_age" string="Đến"
+                                       invisible="age_option!='within'"/>
+
+                            </group>
+                            <group>
+                                <field name="scores" string="Điểm chuyên môn"/>
+                                <field name="rank_point" string="Điểm thưởng xếp hạng"/>
+                                <field name="guide_attachment" string="Tài liệu đính kèm"
+                                       filename="guide_attachment_filename"/>
+                                <field name="desciption" placeholder="Mô tả ngắn gọn..."/>
+                                <field name="guide_content"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- List view -->
+        <record id="view_ydms_guide_tree" model="ir.ui.view">
+            <field name="name">liy.ydms.guide.tree</field>
+            <field name="model">liy.ydms.guide</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="guide_type" width="120"/>
+                    <field name="name" width="250"/>
+                    <field name="area_of_expertise" width="180"/>
+                    <field name="category_ids" widget="many2many_tags" width="200"/>
+                    <field name="scores" width="90" class="text-center"/>
+                    <field name="rank_point" width="90" class="text-center"/>
+                </list>
+            </field>
+        </record>
+        <!-- Action -->
+        <record id="ydms_guide_action" model="ir.actions.act_window">
+            <field name="name">Huy hiệu</field>
+            <field name="res_model">liy.ydms.guide</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <!-- Menu item-->
+        <menuitem name="Bài tập, hướng dẫn chuyên môn" id="guide_menu" parent="ydms_content_menu"
+                  action="ydms_guide_action" sequence="80"/>
+    </data>
 </odoo>
