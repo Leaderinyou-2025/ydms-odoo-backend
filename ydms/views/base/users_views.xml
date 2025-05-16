@@ -9,6 +9,8 @@
                 <!-- Thêm sau phần Related Partner -->
                 <xpath expr="//field[@name='login']" position="after">
                     <group>
+                        <label for="parent_id" string="Cha mẹ"/>
+                        <h2><field name="parent_id"/></h2>
                         <label for="school_id" string="Nhà trường"/>
                         <h2><field name="school_id"/></h2>
                         <label for="classroom_id" string="Lớp học"/>

@@ -25,3 +25,4 @@ class YDMSAchievement(models.Model):
 	nickname = fields.Char(related='teenager_id.nickname', string=u'Biệt danh')
 	badge_id = fields.Many2one('liy.ydms.badge', string=u'Huy hiệu đạt được')
 	badge_image = fields.Image(related='badge_id.active_image', string=u'Hình ảnh huy hiệu')
+	parent_id = fields.Many2one('res.users', related='teenager_id.parent_id')
