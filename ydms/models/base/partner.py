@@ -24,3 +24,10 @@ class YDMSPartner(models.Model):
 	social_id = fields.Char(string=u'Số CCCD')
 	edu_id = fields.Char(string=u'Mã định danh của HS')
 	teenager_code = fields.Char(string=u'Mã nội bộ HS')
+	app_settings = fields.Char(string=u'Cấu hình App')
+	gender = fields.Selection([
+		('male', 'Nam'),
+		('female', 'Nữ'),
+		('other', 'Khác'),
+	], default='male', string=u'Giới tính')
+	dob = fields.Date(string=u'Sinh nhật')

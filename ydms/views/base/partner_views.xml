@@ -15,6 +15,9 @@
                     <field name="social_id" invisible="is_company"/>
                     <field name="edu_id" invisible="is_company"/>
                     <field name="teenager_code" invisible="is_company"/>
+                    <field name="app_settings" invisible="is_company"/>
+                    <field name="gender" invisible="is_company"/>
+                    <field name="dob" invisible="is_company"/>
 
                 </xpath>
                 <!-- Thêm sau phần Tags -->
