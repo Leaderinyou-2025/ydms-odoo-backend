@@ -25,3 +25,7 @@ from . import leadership
 from . import achievement
 from . import experience
 from . import experience_review
+
+from . import task
+from . import assessment_result
+from . import assessment_answer_result

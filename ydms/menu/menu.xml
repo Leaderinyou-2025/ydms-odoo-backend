@@ -5,21 +5,28 @@
                           web_icon="ydms,static/description/icon.png"
                 />
 
-                <!-- Danh mục dùng chung -->
-                <menuitem id="shared_directory_menu" name="Danh mục dùng chung" parent="ydms_root_menu" sequence="100"/>
-                <!-- Nội dung chuyên môn -->
-                <menuitem id="ydms_content_menu" name="Nội dung chuyên môn" parent="ydms_root_menu" sequence="200"/>
-                <!-- Quản lý người dùng -->
-                <menuitem id="user_management_menu" name="Quản lý người dùng" parent="ydms_root_menu" sequence="300"/>
-                <!-- Thiết lập -->
-                <menuitem id="ydms_setting_menu" name="Thiết lập" parent="ydms_root_menu" sequence="400"/>
-                <!-- Thông báo -->
-                <menuitem id="ydms_notification_menu" name="Thông báo" parent="ydms_root_menu" sequence="500"/>
                 <!-- Cá nhân -->
-                <menuitem id="ydms_personal_menu" name="Cá nhân" parent="ydms_root_menu" sequence="600"/>
+                <menuitem id="ydms_personal_menu" name="Cá nhân" parent="ydms_root_menu" sequence="100"/>
+
                 <!-- Gia đình -->
-                <menuitem id="ydms_family_menu" name="Gia đình" parent="ydms_root_menu" sequence="700"/>
+                <menuitem id="ydms_family_menu" name="Gia đình" parent="ydms_root_menu" sequence="200"/>
+
                 <!-- Hoạt động nhóm -->
-                <menuitem id="ydms_group_menu" name="Hoạt động nhóm" parent="ydms_root_menu" sequence="800"/>
+                <menuitem id="ydms_group_menu" name="Hoạt động nhóm" parent="ydms_root_menu" sequence="300"/>
+
+                <!-- Nội dung chuyên môn -->
+                <menuitem id="ydms_content_menu" name="Nội dung chuyên môn" parent="ydms_root_menu" sequence="400"/>
+
+                <!-- Quản lý người dùng -->
+                <menuitem id="user_management_menu" name="Quản lý người dùng" parent="ydms_root_menu" sequence="500"/>
+
+                <!-- Thông báo -->
+                <menuitem id="ydms_notification_menu" name="Thông báo" parent="ydms_root_menu" sequence="600"/>
+
+                <!-- Danh mục dùng chung -->
+                <menuitem id="shared_directory_menu" name="Danh mục dùng chung" parent="ydms_root_menu" sequence="700"/>
+
+                <!-- Thiết lập -->
+                <menuitem id="ydms_setting_menu" name="Thiết lập" parent="ydms_root_menu" sequence="800"/>
         </data>
 </odoo>
