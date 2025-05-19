@@ -1,5 +1,104 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+        <!-- From view -->
+        <record id="view_ydms_assessment_result_personal_form" model="ir.ui.view">
+            <field name="name">liy.ydms.assessment.result.personal.form</field>
+            <field name="model">liy.ydms.assessment.result</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="assignee_id"/>
+                                <field name="nickname"/>
+                                <field name="area_of_expertise"/>
+                            </group>
+                            <group string="Thông tin khảo sát">
+                                <field name="assessment_id"/>
+                                <field name="name"/>
+                                <field name="rank_point"/>
+                                <field name="scores"/>
+                            </group>
+                        </group>
+                        <notebook>
+                            <page string="Trả lời">
+                                <field name="answer_ids">
+                                    <list editable="bottom">
+                                        <field name="assessment_result_id"/>
+                                        <field name="question_id"/>
+                                        <field name="question_name"/>
+                                        <field name="answer_id"/>
+                                        <field name="answer_text"/>
+                                        <field name="scores"/>
+                                    </list>
+                                </field>
+                            </page>
+                        </notebook>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Tree view -->
+        <record id="view_ydms_assessment_result_personal_tree" model="ir.ui.view">
+            <field name="name">liy.ydms.assessment.result.personal.tree</field>
+            <field name="model">liy.ydms.assessment.result</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="assignee_id"/>
+                    <field name="nickname"/>
+                    <field name="assessment_id"/>
+                    <field name="name"/>
+                    <field name="area_of_expertise"/>
+                    <field name="scores"/>
+                    <field name="rank_point"/>
+                </list>
+            </field>
+        </record>
+        <!-- Action -->
+        <record id="ydms_assessment_result_personal_action" model="ir.actions.act_window">
+            <field name="name">Dữ liệu khảo sát</field>
+            <field name="res_model">liy.ydms.assessment.result</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'list', 'view_id': ref('view_ydms_assessment_result_personal_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('view_ydms_assessment_result_personal_form')})]"/>
+            <field name="domain">[
+                ('assignee_id', '=', uid),
+                ('assignee_id.is_teenager', '=', True)
+                ]
+            </field>
+        </record>
+        <record id="ydms_assessment_result_family_action" model="ir.actions.act_window">
+            <field name="name">Dữ liệu khảo sát</field>
+            <field name="res_model">liy.ydms.assessment.result</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'list', 'view_id': ref('view_ydms_assessment_result_personal_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('view_ydms_assessment_result_personal_form')})]"/>
+            <field name="domain">[
+                ('assignee_id', '=', uid),
+                ('assignee_id.is_parent', '=', True)
+                ]
+            </field>
+        </record>
+        <record id="ydms_assessment_result_content_action" model="ir.actions.act_window">
+            <field name="name">Dữ liệu khảo sát</field>
+            <field name="res_model">liy.ydms.assessment.result</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'list', 'view_id': ref('view_ydms_assessment_result_personal_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('view_ydms_assessment_result_personal_form')})]"/>
+        </record>
+        <!-- Menu item-->
+        <menuitem name="Dữ liệu khảo sát" id="assessment_result_personal_menu" parent="ydms_personal_menu"
+                  action="ydms_assessment_result_personal_action" sequence="40"/>
+        <menuitem name="Dữ liệu khảo sát" id="assessment_result_family_menu" parent="ydms_family_menu"
+                  action="ydms_assessment_result_family_action" sequence="50"/>
+        <menuitem name="Dữ liệu khảo sát" id="assessment_result_content_menu" parent="ydms_content_menu"
+                  action="ydms_assessment_result_content_action" sequence="100"/>
     </data>
 </odoo>
