@@ -50,6 +50,9 @@
 		'views/experience_views.xml',
 		'views/experience_review_views.xml',
 
+		'views/task_views.xml',
+		'views/assessment_answer_result_views.xml',
+		'views/assessment_result_views.xml',
 	],
     'assets': {
         'web.assets_backend': [
