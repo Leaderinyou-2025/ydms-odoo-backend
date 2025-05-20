@@ -83,16 +83,6 @@
                         <field name="admin_code"/>
                         <field name="order_weight"/>
                     </group>
-                    <notebook>
-                        <page string="Phường xã">
-                            <field name="precint_ids">
-                                <list editable="bottom">
-                                    <field name="name"/>
-                                    <field name="admin_code"/>
-                                </list>
-                            </field>
-                        </page>
-                    </notebook>
                 </sheet>
             </form>
         </field>
@@ -128,7 +118,7 @@
                 <sheet>
                     <group>
                         <field name="state_id"/>
-                        <field name="district_id"/>
+                        <field name="district_id" domain="[('state_id', '=', state_id)]"/>
                         <field name="name"/>
                         <field name="admin_code"/>
                         <field name="order_weight"/>

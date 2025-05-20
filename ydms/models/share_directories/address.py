@@ -24,17 +24,11 @@ class YDMSCountryState(models.Model):
 		('name_unique', 'UNIQUE(name, country_id)', 'Tên tỉnh thành đã tồn tại trong quốc gia này!'),
 	]
 
-	@api.constrains('admin_code', 'name')
-	def _check_unique_fields(self):
+	def unlink(self):
 		for record in self:
-			# Kiểm tra trùng admin_code
-			if self.search_count([('admin_code', '=', record.admin_code), ('id', '!=', record.id)]) > 0:
-				raise ValidationError(_('Mã hành chính "%s" đã được sử dụng bởi tỉnh thành khác!') % record.admin_code)
-
-			# Kiểm tra trùng name trong cùng country
-			if self.search_count([('name', '=', record.name), ('country_id', '=', record.country_id.id),
-								  ('id', '!=', record.id)]) > 0:
-				raise ValidationError(_('Tên tỉnh thành "%s" đã tồn tại trong quốc gia này!') % record.name)
+			if record.precint_ids:
+				raise UserError(_('Không thể xóa tỉnh/thành "%s" vì vẫn còn phường/xã liên kết.') % record.name)
+		return super().unlink()
 
 # Quận huyện
 class YDMSDistrict(models.Model):
@@ -52,19 +46,9 @@ class YDMSDistrict(models.Model):
 
 	_sql_constraints = [
 		('admin_code_unique', 'UNIQUE(admin_code)', 'Mã hành chính đã tồn tại!'),
+		('name_unique', 'UNIQUE(name, state_id)', 'Tên quận huyện đã tồn tại trong tỉnh thành này!'),
 	]
 
-	@api.constrains('admin_code')
-	def _check_unique_fields(self):
-		for record in self:
-			if record.admin_code:
-				duplicate_records = self.search([
-					('admin_code', '=', record.admin_code),
-					('id', '!=', record.id)
-				], limit=1)
-				if duplicate_records:
-					raise ValidationError(_('Mã hành chính "%s" đã được sử dụng bởi quận huyện %s!') %
-										  (record.admin_code, duplicate_records.name))
 
 # Xã phường
 class YDMSPrecint(models.Model):
@@ -74,7 +58,7 @@ class YDMSPrecint(models.Model):
 
 	# Master fields
 	state_id = fields.Many2one('res.country.state', string=u'Tỉnh thành', required=True)
-	district_id = fields.Many2one('liy.ydms.district', string=u'Quận huyện')
+	district_id = fields.Many2one('liy.ydms.district', string=u'Quận huyện', ondelete='set null')
 
 	name = fields.Char(u'Tên Phường xã', required=True)
 	admin_code = fields.Char(u'Mã hành chính')
@@ -82,19 +66,8 @@ class YDMSPrecint(models.Model):
 
 	_sql_constraints = [
 		('admin_code_unique', 'UNIQUE(admin_code)', 'Mã hành chính đã tồn tại!'),
+		('name_unique', 'UNIQUE(name, state_id)', 'Tên xã phường đã tồn tại trong tỉnh thành này!'),
 	]
-
-	@api.constrains('admin_code')
-	def _check_unique_fields(self):
-		for record in self:
-			if record.admin_code:
-				duplicate_records = self.search([
-					('admin_code', '=', record.admin_code),
-					('id', '!=', record.id)
-				], limit=1)
-				if duplicate_records:
-					raise ValidationError(_('Mã hành chính "%s" đã được sử dụng bởi Xã phường %s!') %
-										  (record.admin_code, duplicate_records.name))
 
 
 class HostopiaAddressMixin(models.AbstractModel):
