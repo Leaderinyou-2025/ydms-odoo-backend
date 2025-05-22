@@ -1,5 +1,146 @@
 <?xml version="1.0" encoding="utf-8"?>
 <odoo>
     <data>
+        <!-- Form view -->
+        <record id="view_ydms_task_personal_form" model="ir.ui.view">
+            <field name="name">liy.ydms.task.personal.form</field>
+            <field name="model">liy.ydms.task</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="guide_id"/>
+                                <field name="guide_type"/>
+                                <field name="assignee_ids" widget="many2many_tags"/>
+                                <field name="area_of_expertise"/>
+                                <field name="status"/>
+                            </group>
+                            <group string="Kết quả thực hiện">
+                                <field name="task_percentage_result"/>
+                                <field name="task_text_result" widget="html"/>
+                                <field name="task_image_result" widget="image" class="oe_avatar"/>
+                            </group>
+                            <group string="Thông tin chấm điểm">
+                                <field name="rank_point"/>
+                                <field name="scores"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_ydms_task_group_form" model="ir.ui.view">
+            <field name="name">liy.ydms.task.group.form</field>
+            <field name="model">liy.ydms.task</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="guide_id" domain="[('guide_type', '=', 'group_activitie')]"/>
+                                <field name="guide_type"/>
+                                <field name="assignee_ids" widget="many2many_tags"/>
+                                <field name="area_of_expertise"/>
+                                <field name="status"/>
+                            </group>
+                            <group string="Kết quả thực hiện">
+                                <field name="task_percentage_result"/>
+                                <field name="task_text_result" widget="html"/>
+                                <field name="task_image_result" widget="image" class="oe_avatar"/>
+                            </group>
+                            <group string="Thông tin chấm điểm">
+                                <field name="rank_point"/>
+                                <field name="scores"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="view_ydms_task_family_form" model="ir.ui.view">
+            <field name="name">liy.ydms.task.personal.form</field>
+            <field name="model">liy.ydms.task</field>
+            <field name="arch" type="xml">
+                <form>
+                    <sheet>
+                        <group>
+                            <group>
+                                <field name="name"/>
+                                <field name="guide_id" domain="[('guide_type', '=', 'family_activitie')]"/>
+                                <field name="guide_type"/>
+                                <field name="assignee_ids" widget="many2many_tags"/>
+                                <field name="area_of_expertise"/>
+                                <field name="status"/>
+                            </group>
+                            <group string="Kết quả thực hiện">
+                                <field name="task_percentage_result"/>
+                                <field name="task_text_result" widget="html"/>
+                                <field name="task_image_result" widget="image" class="oe_avatar"/>
+                            </group>
+                            <group string="Thông tin chấm điểm">
+                                <field name="rank_point"/>
+                                <field name="scores"/>
+                            </group>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <!-- Tree view -->
+        <record id="view_ydms_task_personal_tree" model="ir.ui.view">
+            <field name="name">liy.ydms.task.personal.tree</field>
+            <field name="model">liy.ydms.task</field>
+            <field name="arch" type="xml">
+                <list>
+                    <field name="name"/>
+                    <field name="area_of_expertise"/>
+                    <field name="assignee_ids" widget="many2many_tags"/>
+                    <field name="scores"/>
+                    <field name="task_percentage_result" widget="progressbar"/>
+                    <field name="status"/>
+                </list>
+            </field>
+        </record>
+        <!-- Action -->
+        <record id="ydms_task_personal_action" model="ir.actions.act_window">
+            <field name="name">Nhiệm vụ</field>
+            <field name="res_model">liy.ydms.task</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'list', 'view_id': ref('view_ydms_task_personal_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('view_ydms_task_personal_form')})]"/>
+            <field name="domain">[('assignee_ids','in',uid)]</field>
+        </record>
+        <record id="ydms_task_group_action" model="ir.actions.act_window">
+            <field name="name">Toàn bộ</field>
+            <field name="res_model">liy.ydms.task</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'list', 'view_id': ref('view_ydms_task_personal_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('view_ydms_task_group_form')})]"/>
+            <field name="domain">[('guide_type','=','group_activitie')]</field>
+        </record>
+        <record id="ydms_task_family_action" model="ir.actions.act_window">
+            <field name="name">Toàn bộ</field>
+            <field name="res_model">liy.ydms.task</field>
+            <field name="view_mode">list,form</field>
+            <field name="view_ids"
+                   eval="[(5, 0, 0),
+                          (0, 0, {'view_mode': 'list', 'view_id': ref('view_ydms_task_personal_tree')}),
+                          (0, 0, {'view_mode': 'form', 'view_id': ref('view_ydms_task_family_form')})]"/>
+            <field name="domain">[('guide_type','=','family_activitie')]</field>
+        </record>
+        <!-- Menu item-->
+        <menuitem name="Nhiệm vụ" id="task_personal_menu" parent="ydms_personal_menu"
+                  action="ydms_task_personal_action" sequence="30"/>
+        <menuitem name="Toàn bộ" id="task_group_menu" parent="ydms_group_menu"
+                  action="ydms_task_group_action" sequence="10"/>
+        <menuitem name="Toàn bộ" id="task_family_menu" parent="ydms_family_menu"
+                  action="ydms_task_family_action" sequence="40"/>
     </data>
 </odoo>
