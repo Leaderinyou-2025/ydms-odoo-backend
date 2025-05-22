@@ -26,4 +26,29 @@ class YDMSAppVersion(models.Model):
 	public_url = fields.Char(string=u'Download URL')
 	active = fields.Boolean(u'Active', default = True)
 
+	def _update_public_url(self):
+		for record in self:
+			public_url = False
+			if record.build_bundle_file:
+				attachment = self.env['ir.attachment'].search([
+					('res_model', '=', self._name),
+					('res_field', '=', 'build_bundle_file'),
+					('res_id', '=', record.id)
+				], limit=1, order='id desc')
+				if attachment:
+					public_url = f"/web/content/{attachment.id}/{attachment.name}"
+			# Ghi vào DB
+			record.write({'public_url': public_url})
 
+	def write(self, vals):
+		res = super().write(vals)
+		if 'build_bundle_file' in vals:
+			self._update_public_url()
+		return res
+
+	@api.model
+	def create(self, vals):
+		record = super().create(vals)
+		if 'build_bundle_file' in vals:
+			record._update_public_url()
+		return record
