@@ -20,7 +20,7 @@ from . import assessment_answer_option
 
 from . import guide
 from . import badge
-from . import leadership
+from . import leaderboard
 
 from . import achievement
 from . import experience

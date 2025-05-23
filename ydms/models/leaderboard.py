@@ -8,8 +8,8 @@ from odoo.addons.base_import.models.base_import import ImportValidationError
 from odoo.exceptions import UserError, ValidationError
 
 
-class YDMSLeadership(models.Model):
-	_name = "liy.ydms.leadership"
+class YDMSLeaderboard(models.Model):
+	_name = "liy.ydms.leaderboard"
 	_description = u'Xếp hạng'
 	_inherit = ['mail.thread']
 	_order = 'name desc'
