@@ -23,6 +23,11 @@
                                 <field name="rank_point"/>
                                 <field name="scores"/>
                             </group>
+                            <group>
+                                <field name="public_emotional"/>
+                                <field name="public_emotional_to" invisible="public_emotional == False"/>
+                                <field name="public_user_ids" widget="many2many_tags" invisible="public_emotional == False"/>
+                            </group>
                         </group>
                     </sheet>
                 </form>
@@ -44,12 +49,12 @@
         </record>
         <!-- Action-->
         <record id="emotional_diary_action" model="ir.actions.act_window">
-            <field name="name">Câu hỏi cảm xúc</field>
+            <field name="name">Nhật ký cảm xúc</field>
             <field name="res_model">liy.ydms.emotional.diary</field>
             <field name="view_mode">list,form</field>
         </record>
         <!-- Menu item-->
-        <menuitem name="Nhật ký cảm xúc" id="emotional_diary_menu" parent="ydms_content_menu"
-                  action="emotional_diary_action" sequence="40"/>
+        <menuitem name="Nhật ký cảm xúc" id="emotional_diary_menu" parent="ydms_personal_menu"
+                  action="emotional_diary_action" sequence="60"/>
     </data>
 </odoo>
