@@ -45,7 +45,7 @@
 		'views/assessment_views.xml',
 		'views/guide_views.xml',
 		'views/badge_views.xml',
-		'views/leadership_views.xml',
+		'views/leaderboard_views.xml',
 		'views/achievement_views.xml',
 		'views/experience_views.xml',
 		'views/experience_review_views.xml',
