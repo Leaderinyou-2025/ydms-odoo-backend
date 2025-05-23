@@ -33,3 +33,5 @@ access_ydms_experience_review_user,access.liy.ydms.experience.review.user,model_
 access_ydms_task_user,access.liy.ydms.task.user,model_liy_ydms_task,base.group_user,1,1,1,1
 access_ydms_assessment_result_user,access.liy.ydms.assessment.result.user,model_liy_ydms_assessment_result,base.group_user,1,1,1,1
 access_ydms_assessment_answer_result_user,access.liy.ydms.assessment.answer.result.user,model_liy_ydms_assessment_answer_result,base.group_user,1,1,1,1
+
+access_ydms_friend_user,access.liy.ydms.friend.user,model_liy_ydms_friend,base.group_user,1,1,1,1

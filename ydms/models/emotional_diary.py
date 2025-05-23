@@ -24,3 +24,10 @@ class YDMSEmotionalDiary(models.Model):
 	rank_point = fields.Integer(related='question_id.rank_point')
 	scores = fields.Integer(related='answer_id.scores')
 
+	public_emotional = fields.Boolean(string=u'Chia sẻ', default=False)
+	public_emotional_to = fields.Selection([
+		('friend', u'Bạn bè'),
+		('parent', u'Cha mẹ'),
+		('teacher', u'Giáo viên')
+	], string=u'Chia sẻ cho')
+	public_user_ids = fields.Many2many('res.users', string=u'Danh sách người được chia sẻ')
