@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data>
+        <!-- Form view-->
+        <record id="view_ydms_friend_form" model="ir.ui.view">
+            <field name="name">liy.ydms.friend.form</field>
+            <field name="model">liy.ydms.friend</field>
+            <field name="arch" type="xml">
+                <form string="Bạn bè của học sinh">
+                    <sheet>
+                        <group>
+                            <field name="user_id" required="1" options="{'no_create': True, 'no_open': True}"/>
+                        </group>
+                        <group>
+
+                            <group string="Thông tin bạn bè">
+                                <field name="friend_id" required="1" options="{'no_create': True, 'no_open': True}"/>
+                                <field name="nickname" readonly="1"/>
+                                <field name="avatar" widget="image" class="oe_avatar" readonly="1"/>
+                            </group>
+                        </group>
+                        <group>
+                            <field name="status"/>
+                            <field name="friendly_point" readonly="1"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- List view-->
+        <record id="view_ydms_friend_tree" model="ir.ui.view">
+            <field name="name">liy.ydms.friend.tree</field>
+            <field name="model">liy.ydms.friend</field>
+            <field name="arch" type="xml">
+                <list string="Bạn bè của học sinh">
+                    <field name="user_id"/>
+                    <field name="name"/>
+                    <field name="nickname"/>
+                    <field name="friendly_point" width="150"/>
+                    <field name="status"/>
+                </list>
+            </field>
+        </record>
+
+        <!-- Action -->
+        <record id="ydms_friend_action" model="ir.actions.act_window">
+            <field name="name">Bạn bè</field>
+            <field name="res_model">liy.ydms.friend</field>
+            <field name="view_mode">list,form</field>
+        </record>
+        <!-- Menu item-->
+        <menuitem name="Bạn bè" id="friend_menu" parent="ydms_personal_menu"
+                  action="ydms_friend_action" sequence="70"/>
+    </data>
+</odoo>

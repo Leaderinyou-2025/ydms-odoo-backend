@@ -29,3 +29,4 @@ from . import experience_review
 from . import task
 from . import assessment_result
 from . import assessment_answer_result
+from . import friend

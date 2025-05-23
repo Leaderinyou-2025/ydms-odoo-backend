@@ -53,6 +53,7 @@
 		'views/task_views.xml',
 		'views/assessment_answer_result_views.xml',
 		'views/assessment_result_views.xml',
+		'views/friend_views.xml',
 	],
     'assets': {
         'web.assets_backend': [
